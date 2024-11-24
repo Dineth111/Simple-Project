@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+  <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <h2>University of Enigma</h2>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class="bx bxs-dashboard"></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bxs-user"></i>
+          <span class="link_name">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bxs-chat"></i>
+          <span class="link_name">Appointments</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bxs-book"></i>
+          <span class="link_name">Contacts</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bxs-envelope"></i>
+          <span class="link_name">Mails</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bxs-cog"></i>
+          <span class="link_name">Settings</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <img src="enigmaicon.jpg" alt="image" width="100px" height="50px">
+        <span class="dashboard"><i>STUDENT HELP DESK</i></span> 
+      </div>
+      <div class="profile-details">
+        <img src="pic/IT.jpg" alt="">
+        <span class="admin_name">Counselor</span>
+      </div>
+    </nav>
+ 
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="left-side">
+            <div class="box_topic">Appointments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <center>
+    <div class="form-container">
+      <form method="POST" action="http://localhost/onlineHD/admin/student/updates.php">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div class="input-group">
+            <label for="texti">Student ID:</label>
+            <input type="text" id="texti" name="texti">
+          </div>
+          <div class="input-group">
+            <label for="textn">First Name:</label>
+            <input type="text" id="textn" name="textn">
+          </div>
+          <div class="input-group">
+            <label for="textln">Last Name:</label>
+            <input type="text" id="textln" name="textln">
+          </div>
+          <div class="input-group">
+            <label for="nic">NIC:</label>
+            <input type="text" id="nic" name="nic">
+          </div>
+          <div class="input-group">
+            <label for="texta">Address:</label>
+            <input type="text" id="texta" name="texta">
+          </div>
+          <div class="input-group">
+            <label for="dob">DOB:</label>
+            <input type="text" id="dob" name="dob">
+          </div>
+          <div class="input-group">
+            <label for="textm">Mail:</label>
+            <input type="text" id="textm" name="textm">
+          </div>
+          <div class="input-group">
+            <label for="textf">Faculty:</label>
+            <input type="text" id="textf" name="textf">
+          </div>
+          <div class="input-group">
+            <label for="textay">Academic Year:</label>
+            <input type="text" id="textay" name="textay">
+          </div>
+          <div class="input-group">
+            <label for="textp">Phone Number:</label>
+            <input type="text" id="textp" name="textp">
+          </div>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form>
+   
+</div>
+ 
+</body>
+</html>

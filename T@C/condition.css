@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cf5e13;
+    background-image: url("cart.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid #1b0f81;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+}
+
+.tabs {
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    transition: :background-clor 0.3s ease;
+    color: #000;
+}
+
+.tabs ul {
+    display: flex;
+    list-style-type: none;
+    border-bottom: 2px solid #010316;
+}
+
+.tabs li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #5c2a2a;
+    margin-right: 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: medium;
+    font-weight: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.tabs li.active {
+    background-color: #a9a3d1;
+    border-bottom: none;
+    color: #01101c;
+    font-size: medium;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+.tab-content {
+    padding-top: 20px;
+}
+
+.tab-item {
+    display: none;
+}
+
+.tab-item.active {
+    display: block;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button.agree {
+    background-color: #19d43f;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+
+h1 {
+    color: #300505;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.separator li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+h1{
+    color: rgb(33, 27, 198);
+    margin-bottom: 10px;
+    padding: 0px;
+}
+h2{
+    color: #5c3a3a;
+    margin-bottom: 10px;
+}
+p{
+    line-height: 1.0;
+}
+
+
+
+
+
+
+
+
+
+
+
