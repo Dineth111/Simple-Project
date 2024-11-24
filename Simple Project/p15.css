@@ -1,0 +1,104 @@
+/* General Styling */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h2, h3, h5 {
+    font-family: 'Arial', sans-serif;
+}
+
+a, button {
+    color: #17a2b8;
+}
+
+a:hover, button:hover {
+    color: #138496;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e1e1e;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar .nav-link.active {
+    color: #17a2b8 !important;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #343a40;
+}
+
+/* Service Box */
+.service-box {
+    background-color: #1e1e1e;
+    border: 1px solid #343a40;
+    transition: background-color 0.3s ease;
+}
+
+.service-box:hover {
+    background-color: #343a40;
+}
+
+/* Testimonials */
+.testimonial {
+    background-color: #1e1e1e;
+    border: 1px solid #343a40;
+    transition: background-color 0.3s ease;
+}
+
+.testimonial:hover {
+    background-color: #343a40;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e;
+}
+
+/* Form Inputs */
+.form-control {
+    background-color: #1e1e1e;
+    border: 1px solid #343a40;
+    color: #ffffff;
+}
+
+/* Button Styles */
+button, .btn {
+    background-color: #17a2b8;
+    border: none;
+}
+
+button:hover, .btn:hover {
+    background-color: #138496;
+}
+
+/* Carousel */
+.carousel-inner .carousel-item {
+    padding: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .service-box {
+        margin-bottom: 20px;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+    }
+}

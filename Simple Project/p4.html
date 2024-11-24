@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 4</title>    
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #1b1b1b;
+        }
+        .loader {
+            height: 9em;
+            width: 9em;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle {
+            position: absolute;
+            height: 88%;
+            width: 88%;
+            border-radius: 50%;
+            border-style: solid;
+        }
+        .white {
+            border-width: 3px 3px 0 0;
+            border-color: wheat wheat transparent;
+            animation: rotate-white 1s linear infinite;
+        }
+        .red {
+            border-width: 0 0 3px 3px;
+            border-color: transparent transparent red;
+            animation: rotate-red 1s linear infinite;
+        }
+        .orange {
+            border-width: 0 3px 3px 0;
+            border-color: transparent orange orange;
+            animation: rotate-orange 1s linear infinite;
+        }
+        .yellow {
+            border-width: 0 3px 3px 0;
+            border-color: transparent yellow yellow;
+            animation: rotate-yellow 1s linear infinite;
+        }
+        @keyframes rotate-white {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotate-red {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotate-orange {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotate-yellow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>   
+</head>
+<body>
+    <div class="circle white"></div>
+    <div class="circle red"></div>
+    <div class="circle orange"></div>
+    <div class="circle yellow"></div>
+</body>
+</html>
+

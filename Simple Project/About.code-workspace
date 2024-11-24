@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../group project/About"
+		},
+		{
+			"path": "../group project/Final project"
+		},
+		{
+			"path": "../group project/Log@Register"
+		},
+		{
+			"path": "../group project/Student from"
+		},
+		{
+			"path": "../group project/T@C"
+		},
+		{
+			"path": "../group project/work"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "About"
+	}
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the word</title>
+    <style>
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: serif;
+            background: #1cb295;
+            margin: 0;
+        }
+        .guessTheWord {
+            height: auto;
+            border-radius: 5px;
+            background: white;
+            padding: 2em;
+        }
+        .title {
+           padding-bottom: 1em;
+           border-bottom: 1px solid gray;
+           margin-bottom: 1em;
+        }
+        .container {
+            padding: 1em 0;
+        }
+        .input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0 0.5em;
+            margin-bottom: 1em;
+        }
+        .letter {
+            height: 2em;
+            width: 2em;
+            outline: none;
+            text-align: center;
+            font-size: 1.4em;
+            text-transform: uppercase;
+        }
+        .indicter {
+            font-size: 0.8em;
+            margin-bottom: 1em;
+        }
+        .action {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            color: white;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            width: 48%;
+            height: 3em;
+            outline: none;
+        }
+        .submit {
+            background-color: #1cb295;
+        }
+        .reset {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="guessTheWord">
+        <header class="title">Guess the word</header>
+        <form class="container" id="guessForm" onsubmit="return false;">
+            <div class="input" id="letterInputs"></div>
+            <div class="indicter">
+                <p class="remaining">Remaining guesses: <span id="remainingGuesses"></span></p>
+                <p class="wrong">Wrong letters: <span id="wrongLetters"></span></p>
+            </div>
+            <div class="action">
+                <button type="button" class="submit" id="submitBtn">Submit</button>
+                <button type="button" class="reset" id="resetBtn">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const wordToGuess = "HELLO"; // Change this to the word you want users to guess
+        let remainingGuesses = 6;
+        let wrongLetters = [];
+
+        // Function to initialize the game
+        function initGame() {
+            // Reset remaining guesses and wrong letters
+            remainingGuesses = 6;
+            wrongLetters = [];
+            updateDisplay();
+            const letterInputs = document.querySelectorAll(".letterInput");
+            letterInputs.forEach(input => input.value = "");
+        }
+
+        // Function to update the display with remaining guesses and wrong letters
+        function updateDisplay() {
+            document.getElementById("remainingGuesses").textContent = remainingGuesses;
+            document.getElementById("wrongLetters").textContent = wrongLetters.join(", ");
+        }
+
+        // Function to check if the guessed letter is correct
+        function checkGuess(letter) {
+            const letterInputs = document.querySelectorAll(".letterInput");
+            let guessedCorrectly = false;
+
+            letterInputs.forEach(input => {
+                if (input.dataset.letter === letter) {
+                    guessedCorrectly = true;
+                    input.value = letter;
+                }
+            });
+
+            if (!guessedCorrectly) {
+                remainingGuesses--;
+                wrongLetters.push(letter);
+            }
+
+            updateDisplay();
+
+            // Check if the word has been guessed completely
+            const wordGuessed = [...letterInputs].every(input => input.value.toUpperCase() === input.dataset.letter);
+
+            if (wordGuessed) {
+                alert("Congratulations! You guessed the word.");
+                initGame();
+            } else if (remainingGuesses === 0) {
+                alert("Game over! The word was: " + wordToGuess);
+                initGame();
+            }
+        }
+
+        // Event listener for Submit button
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            const letterInputs = document.querySelectorAll(".letterInput");
+            letterInputs.forEach(input => {
+                if (input.value) {
+                    checkGuess(input.value.toUpperCase());
+                }
+            });
+        });
+
+        // Event listener for Reset button
+        document.getElementById("resetBtn").addEventListener("click", function() {
+            initGame();
+        });
+
+        // Initialize the game when the page loads
+        window.addEventListener("load", function() {
+            const letterInputsContainer = document.getElementById("letterInputs");
+            const letters = wordToGuess.split("");
+
+            letters.forEach(letter => {
+                const input = document.createElement("input");
+                input.type = "text";
+                input.maxLength = 1;
+                input.classList.add("letter", "letterInput");
+                input.dataset.letter = letter.toUpperCase();
+                letterInputsContainer.appendChild(input);
+            });
+
+            initGame();
+        });
+    </script>
+</body>
+</html>

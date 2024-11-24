@@ -1,0 +1,91 @@
+6<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+    <style>
+        :root {
+            --rotate: 132deg;
+            --card-height: 65vh;
+            --card-width: calc(var(--card-height) / 1.5);
+        }
+        body {
+            min-height: 100vh;
+            background: #212532;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .card {
+            background: #191c29;
+            width: var(--card-width);
+            height: var(--card-height);
+            padding: 3px;
+            position: relative;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: white; /* corrected color value */
+            cursor: pointer;
+            font-family: cursive;
+            transition: color 1s;
+        }
+        .card:hover {
+            color: lightblue; /* corrected color value */
+        }
+        .card::before,
+        .card::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            border-radius: 8px;
+            animation: spin 2.5s linear infinite;
+        }
+        .card::before {
+            width: 104%;
+            height: 12%;
+            background-image: linear-gradient(var(--rotate), #5ddcf5, #3c67e3 43%, #4e00c2);
+            top: -1px; /* corrected value */
+            left: -1px; /* corrected value */
+        }
+        .card::after {
+            top: calc(var(--card-height) / 6);
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.8);
+            filter: blur(calc(var(--card-height) / 6));
+            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+            opacity: 1;
+            transition: opacity 0.5s; /* corrected duration */
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        a {
+            color: #ffffff; /* corrected color value */
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        Easy Learn Axis.
+    </div>
+</body>
+</html>
