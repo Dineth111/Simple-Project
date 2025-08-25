@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Hosting page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #1f2937;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #6b7280;
+        }
+
+        .btn-ghost:hover {
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #d1d5db;
+            color: #374151;
+        }
+
+        .btn-outline:hover {
+            background: #f3f4f6;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 35%, #8b5cf6 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: #dbeafe;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #6b7280;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.popular {
+            border-color: #2563eb;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2563eb;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .pricing-period {
+            color: #6b7280;
+            margin-left: 0.25rem;
+        }
+
+        .pricing-description {
+            color: #6b7280;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #2563eb;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(to right, #2563eb, #8b5cf6);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #dbeafe;
+            font-size: 1.125rem;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            background: #f9fafb;
+            padding: 5rem 0;
+        }
+
+        .testimonial-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .testimonial-text h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stars {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: #fbbf24;
+            margin-right: 0.25rem;
+        }
+
+        .testimonial-quote {
+            font-size: 1.125rem;
+            color: #374151;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .author-title {
+            color: #6b7280;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 24rem;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, #059669, #2563eb);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: #d1fae5;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cta-note {
+            color: #d1fae5;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            grid-column: span 2;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        .footer-section h3 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #9ca3af;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 3.75rem;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+            }
+
+            .testimonial-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .footer-brand {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .testimonial-text h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">L</div>
+                    <span class="logo-text">Hosting</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="#home">Web Hosting</a>
+                    <a href="#features">Reseller Hosting</a>
+                    <a href="#pricing">Vps Hosting</a>
+                    <a href="#about">Domain Name</a>
+                </nav>
+                
+                <div class="header-buttons">
+                    <a href="#" class="btn btn-ghost">Support</a>
+                    <a href="#" class="btn btn-primary">Log in</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Unlimited Web Hosting Fast,Secure And Reliable</h1>
+                        <p> 16 Years of experiance in expertily carified hosting</p>
+                        <p>Unrilaiabled spped,secure hosting you can trust</p>
+                        <p>UK servers and expert suport with no hidden fees</p>
+                        <a href="#" class="btn btn-lg" style="background: white; color: #2563eb;">Get Started Free</a>
+                        <a href="#" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Watch Demo</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrx8fDE3NTYwNDkzMTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Analytics Dashboard">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose from our web hosting solutions...</h2>
+                <p>We offer a wide range of Unlimited web hosting solution for your website</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-title">Web Hosting</div>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$9</span>
+                            <span class="pricing-period">/month</span>
+                        </div>
+                        <div class="pricing-description">Host unlimited sites a fast secure and Reliable web hosting plan with cPand</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>Up to 5 projects</li>
+                        <li>Basic analytics</li>
+                        <li>Email support</li>
+                        <li>5GB storage</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <div class="pricing-title">Managed WordPress</div>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$29</span>
+                            <span class="pricing-period">/month</span>
+                        </div>
+                        <div class="pricing-description">Our highest perfomance managed WP Hosting.Unlock the full potential of WordPress</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>Unlimited projects</li>
+                        <li>Advanced analytics</li>
+                        <li>Priority support</li>
+                        <li>50GB storage</li>
+                        <li>Team collaboration</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-title">Reseller Hosting</div>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">$99</span>
+                            <span class="pricing-period">/month</span>
+                        </div>
+                        <div class="pricing-description">Sell unlimited hosting solutins to your clients.Operate your own web hosting Company</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>Everything in Professional</li>
+                        <li>Advanced security</li>
+                        <li>Dedicated account manager</li>
+                        <li>Unlimited storage</li>
+                        <li>Custom branding</li>
+                        <li>SLA guarantee</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-title">VPS Custom</div>
+                        <div class="pricing-price">
+                            <span class="pricing-amount">Custom</span>
+                        </div>
+                        <div class="pricing-description">Fast SSD Storage,scalable resources,run demanding apps and websites with ereas</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>Custom features</li>
+                        <li>Volume discounts</li>
+                        <li>White-label solution</li>
+                        <li>On-premise deployment</li>
+                        <li>24/7 phone support</li>
+                        <li>Training included</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Unlimited web Hosting UK?</h2>
+                <p>Our goal is to make hosting simple and affodable.We ofer easy to use Product backend by expert UK-based support.</p>
+            </div>
+            
+            <div class="features-grid">
+                
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">99.9% Uptime Guarantee</div>
+                    <div class="feature-description">With multi-roung networking redundent and load balanced clusters and continouse 24/7 monitoring .we never miss a beat..</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">cPanel Certifiend Support</div>
+                    <div class="feature-description">To show our commitement to providing unparaled service.We ensure our staff are certifed in the control sofftware.</div>
+                </div>
+i
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Secure Web Hosting</div>
+                    <div class="feature-description">Rest easy with our enterprise firewall.Anti-SPAM,DDOS Protection.imunify AV+&more,your website is in safe secure hands.</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <div class="feature-title">Free website Migration</div>
+                    <div class="feature-description">Our team migration experts can help you move your existing xPanel-based website to our web hosting platform</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1,500+</div>
+                    <div class="stat-label">Websites Hosted</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">16+</div>
+                    <div class="stat-label">Years in Businsess</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-label">Valued customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <h2>A cerrtifiend supoet team that's always got your back</h2>
+                    <p>We can't underate the power of our excelent wweb hosting support team,they are the backbone of the company.The support team keep things runing smoothly and are on hand to answer your questions quickly.</p>
+                    <p>Our team memberd regulary undertake estensive traning and a through certification process to become and maintain our cP certified panter status.</p>
+                    <p>We are here to ensure your services are always working efeciently and efectively for you.Our hosting experts can solve any problem that arieas quickly and reliably.</p>
+                   
+                </div>
+                
+                <div class="testimonial-image">
+                    <img src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHhwcm9mZXNzaW9uYWwlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzU2MDEwMDM0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Professional Workspace">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Migrating from another web host?</h2>
+            <p>We can migraye your existing website,blong or online store to our platform with no downtime.sit backwhiilst we take care of the Rest</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-lg" style="background: white; color: #059669;">Start Free Trial</a>
+                <a href="#" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Contact Sales</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">L</div>
+                        <span class="logo-text">Hosting</span>
+                    </div>
+                    <h3>100% Green web Hosting</h3>
+                    <p>We are commilted providing climate positive website hosting</p>
+                  
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tree Planted Monthly</h3>
+                    <p>We have partened with ecologi to suport version globle replaing projects to improve the feature envoirment</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Climate positive workplaces</h3>
+                   <p>We contract the carbon footprint of every employee by off=seating all buisness travel-plus 100%.This help to ensure our staff .</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Workplace CO2,Reduction</h3>
+                <p>Our office in Machester,UK are fited with a large 50KW solar panal area.providing reswable green enerogy to the workplace.</p>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Landing. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
