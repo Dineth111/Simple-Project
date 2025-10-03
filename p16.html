@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Airport Vehicle Reservation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="p16.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" alt="Logo" height="40" class="me-2">
+                    Sri Lanka Airport Transport
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#hero">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Book Now</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#destinations">Destinations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero text-white text-center py-5">
+        <div class="hero-background"></div>
+        <div class="container py-5 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Welcome to Sri Lanka Airport Vehicle Reservation</h1>
+                    <p class="lead mb-4 animate__animated animate__fadeInUp">Book your comfortable ride from the airport to your destination</p>
+                    <a href="#booking" class="btn btn-primary btn-lg pulse-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__fadeIn">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <div class="card-body text-center">
+                            <i class="fas fa-car fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title h5">Wide Range of Vehicles</h3>
+                            <p class="card-text">Choose from our fleet of luxury cars, vans, and buses</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title h5">24/7 Service</h3>
+                            <p class="card-text">Available round the clock for your convenience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title h5">Island-wide Coverage</h3>
+                            <p class="card-text">Travel to any destination across Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm animate__animated animate__fadeInUp" data-wow-delay="0.7s">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title h5">Safe & Secure</h3>
+                            <p class="card-text">Professional drivers and well-maintained vehicles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Book Your Vehicle</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form id="reservation-form">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="pickup-date" class="form-label">Pickup Date</label>
+                                        <input type="date" class="form-control" id="pickup-date" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="pickup-time" class="form-label">Pickup Time</label>
+                                        <input type="time" class="form-control" id="pickup-time" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="passengers" class="form-label">Number of Passengers</label>
+                                        <input type="number" class="form-control" id="passengers" min="1" max="50" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="destination" class="form-label">Destination</label>
+                                        <select class="form-select" id="destination" required>
+                                            <option value="">Select Destination</option>
+                                            <option value="colombo">Colombo</option>
+                                            <option value="kandy">Kandy</option>
+                                            <option value="galle">Galle</option>
+                                            <option value="negombo">Negombo</option>
+                                            <option value="ella">Ella</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6" id="other-destination-group" style="display: none;">
+                                        <label for="other-destination" class="form-label">Specify Destination</label>
+                                        <input type="text" class="form-control" id="other-destination">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="vehicle-type" class="form-label">Vehicle Type</label>
+                                        <select class="form-select" id="vehicle-type" required>
+                                            <option value="">Select Vehicle</option>
+                                            <option value="car">Car (1-4 passengers)</option>
+                                            <option value="van">Van (1-8 passengers)</option>
+                                            <option value="minibus">Minibus (1-15 passengers)</option>
+                                            <option value="bus">Bus (16-50 passengers)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="special-requests" class="form-label">Special Requests</label>
+                                        <textarea class="form-control" id="special-requests" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Reserve Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="card shadow h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="h5 mb-0">Why Choose Our Service?</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Fixed prices with no hidden charges</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Professional and experienced drivers</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Clean and well-maintained vehicles</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Free cancellation up to 24 hours before pickup</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Meet and greet service at the airport</li>
+                            </ul>
+                            <div class="vehicle-preview">
+                                <h4 class="h5">Selected Vehicle Preview</h4>
+                                <div id="vehicle-image-container" class="text-center my-3">
+                                    <img src="images/default-vehicle.jpg" alt="Select a vehicle" id="vehicle-preview-img" class="img-fluid rounded">
+                                </div>
+                                <div id="vehicle-details">
+                                    <p id="vehicle-description" class="text-muted">Please select a vehicle type to see details</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Popular Destinations -->
+    <section id="destinations" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__fadeIn">Popular Destinations</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm animate__animated animate__zoomIn">
+                        <img src="images/colombo.jpg" class="card-img-top" alt="Colombo">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Colombo</h3>
+                            <p class="card-text">Sri Lanka's vibrant capital city</p>
+                            <a href="#booking" class="btn btn-outline-primary" data-destination="colombo">Book a ride</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/kandy.jpg" class="card-img-top" alt="Kandy">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Kandy</h3>
+                            <p class="card-text">Cultural capital with Temple of the Tooth</p>
+                            <a href="#booking" class="btn btn-outline-primary" data-destination="kandy">Book a ride</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/galle.jpg" class="card-img-top" alt="Galle">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Galle</h3>
+                            <p class="card-text">Historic fort city on the southern coast</p>
+                            <a href="#booking" class="btn btn-outline-primary" data-destination="galle">Book a ride</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__fadeIn">What Our Customers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow animate__animated animate__fadeIn">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"Excellent service from airport to our hotel in Colombo. Driver was professional and the vehicle was clean and comfortable."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="images/testimonial1.jpg" alt="John Smith" class="rounded-circle" width="50" height="50">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-0">John Smith</h5>
+                                    <small class="text-muted">United Kingdom</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="card-text">"We booked a van for our family of 6 and had a wonderful experience. The driver was knowledgeable about the local attractions and made our trip special."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="images/testimonial2.jpg" alt="Sarah Johnson" class="rounded-circle" width="50" height="50">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-0">Sarah Johnson</h5>
+                                    <small class="text-muted">Australia</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"Punctual, reliable and very comfortable journey from the airport to Kandy. Will definitely use this service again on our next visit to Sri Lanka."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="images/testimonial3.jpg" alt="David Chen" class="rounded-circle" width="50" height="50">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="mb-0">David Chen</h5>
+                                    <small class="text-muted">Singapore</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            How do I confirm my reservation?
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            After submitting your reservation form, you will receive an email confirmation with all the details. You need to confirm by clicking the link in the email.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            What if my flight is delayed?
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Don't worry! Our drivers monitor flight arrivals. If your flight is delayed, your driver will wait for you at no extra charge.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Can I cancel my reservation?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, you can cancel your reservation free of charge up to 24 hours before the scheduled pickup time. For cancellations less than 24 hours before pickup, a 50% fee applies.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Are child seats available?
+                        </button>
+                    </h3>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we provide child seats upon request. Please mention this in the special requests field when making your reservation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Sri Lanka Airport Transport</h5>
+                    <p class="mb-3">Your trusted partner for airport transfers and transportation services across Sri Lanka.</p>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Vehicles</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Terms & Conditions</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            Airport Transport Office, Bandaranaike International Airport, Colombo, Sri Lanka
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i>
+                            +94 11 2345678
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            info@slairporttransport.com
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for special offers and updates</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email Address" aria-label="Email" aria-describedby="button-addon2" required>
+                            <button class="btn btn-outline-light" type="submit" id="button-addon2">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            &copy; 2023 Sri Lanka Airport Transport. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Reservation Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Reservation Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="confirmation-details">
+                    <!-- Confirmation details will be inserted here by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="edit-reservation">Edit Details</button>
+                    <button type="button" class="btn btn-primary" id="confirm-reservation">Confirm Reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="p16.js"></script>
+    
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to top functionality
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
